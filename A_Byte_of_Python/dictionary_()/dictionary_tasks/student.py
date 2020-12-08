@@ -104,17 +104,10 @@ def new_dictionary():
     for i in sorted(new_dict.items(), key=lambda couple: (couple[1][2], couple[1][3])):
         print(i)
 
-
-
-
-
-
-
-
+# output
 same_last_name()
 opposite_class()
 classmates_have_the_same_surname()
-# e)
 more_than_35()
 class_differences()
 new_dictionary()
