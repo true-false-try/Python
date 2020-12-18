@@ -70,3 +70,5 @@ print('degree first numb and last numb:',
           first_last(), sep='\n')
 print('the number of components of a file that are less than the arithmetic mean of all its components:',
           middle_aref(), sep='\n')
+
+file.close()
