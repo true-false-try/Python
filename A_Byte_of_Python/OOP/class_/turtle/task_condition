@@ -1,60 +1,6 @@
-import turtle
-class Point:
- '''Точка екрану
- '''
- _count = 0
- def __init__(self, x, y):
- self._x = x # _x - координата x точки
- self._y = y # _y - координата y точки
- self._visible = False # _visible - чи є точка видимою на екрані
- Point._count += 1
- def getx(self):
- '''Повертає координату x точки
- '''
- return self._x
- def gety(self):
- '''Повертає координату y точки
- '''
- return self._y
- def onscreen(self):
- '''Перевіряє, чи є точка видимою на екрані
- '''
- return self._visible
- def switchon(self):
- '''Робить точку видимою на екрані
- '''
- if not self._visible:
- self._visible = True
- turtle.up()
- turtle.setpos(self._x, self._y)
- turtle.down()
- turtle.dot()
- def switchoff(self):
- '''Робить точку невидимою на екрані
- '''
- if self._visible:
- self._visible = False
- turtle.up()
- turtle.setpos(self._x, self._y)
- turtle.down()
- turtle.dot(turtle.bgcolor())
- def move(self, dx, dy):
- '''Пересуває точку на екрані на dx, dy позицій
- '''
- vis = self._visible
- if vis:
- self.switchoff()
- self._x += dx
- self._y += dy
- if vis:
- self.switchon()
-
- def printcount():
- print('Кількість точок:', Point._count)
- printcount = staticmethod(printcount)
 Описати клас Прямокутник на базі класу Point. Сторони прямокутника
 паралельні осям координат. Для прямокутника задані лівий верхній кут та
-довжини сторін. Описати методи отримання довжини кожної з сторін, стерти
+довжини сторін. Намалювати прямокутник, стерти
 прямокутник з екрану та зробити прямокутник видимим на екрані.
 Скласти програму створення заданої кількості прямокутників та переміщення
 їх по екрану.
