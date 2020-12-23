@@ -64,23 +64,7 @@ class Point:
     printcount = staticmethod(printcount)
 
 
-
 class Rectangle(Point):
-    """def draw_rectngle(self):
-        height, long = int(input('Enter long: ')), int(input('Enter height: '))
-        line = turtle.Turtle()
-        count = 1
-        for i in range(4):
-            if count % 2 == 1:
-                line.forward(long)
-                line.left(90)
-                count += 1
-            else:
-                line.forward(height)
-                line.left(90)
-                count += 1"""
-
-
 
     def __init__(self, x, y, long, height):
         Point.__init__(self, x, y)
@@ -103,50 +87,52 @@ class Rectangle(Point):
             for i in range(4):
                 if count % 2 == 1:
                     turtle.forward(self._long)
-                    turtle.left(90)
+                    turtle.right(90)
                     count += 1
                 else:
                     turtle.forward(self._height)
-                    turtle.left(90)
+                    turtle.right(90)
                     count += 1
-            turtle.up()
-
 
     def switchoff(self):
         if self._visible:
             self._visible = False
-            turtle.up()
-            c = turtle.pencolor()
+            turtle.down()
+            col = turtle.pencolor()
             turtle.pencolor(turtle.bgcolor())
             count = 1
-
             for i in range(4):
                 if count % 2 == 1:
                     turtle.forward(self._long)
-                    turtle.left(90)
+                    turtle.right(90)
                     count += 1
                 else:
                     turtle.forward(self.get_height())
-                    turtle.left(90)
+                    turtle.right(90)
                     count += 1
-            turtle.pencolor(c)
+            turtle.pencolor(col)
 
 
 if __name__ == '__main__':
-    how = int(input('Скількі вивести прямоугольників? '))
+    how = int(input('Скількі вивести прямокутників? '))
+    window = turtle.Screen()
+    window.setup(900, 700)
     pause = 50
     turtle.home()
     turtle.delay(pause)
-    p = Point(10, 10)
+    p = Point(-20, 10)
     p.switchon()
     p.move(20, 20)
-    c = Rectangle(10, 10, 20, 100)
+    c = Rectangle(10, 0, 30, 60)
     turtle.speed(30)
-    color = ['red', 'blue', 'green', 'pink', 'brown']
+
+    lst_color = ['red', 'blue', 'green', 'pink', 'brown', 'yellow']
     for i in range(how):
         c.switchon()
-        turtle.pencolor(color[i % 6])
-        c.move(random.uniform(1, -50), random.uniform(1, -50))
+        turtle.pencolor(lst_color[i % random.randint(1, 6)])
+        if i % 2 == 1:
+            c.move(random.randint(50, 200), random.uniform(100, 50))
+        c.move(random.randint(-100, -1), random.uniform(-1, -100))
 
 
 
