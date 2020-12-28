@@ -25,6 +25,11 @@ class SuperStr(str):
             return True
         else:
             return False
+        
+    def is_palindrom(self):
+        if self.string.lower() == self.string.lower()[::-1]:
+            return True
+        return False
 
 
 if __name__ == '__main__':
@@ -33,4 +38,17 @@ if __name__ == '__main__':
     print(s.is_repeatance('123'))  # True
     print(s.is_repeatance('12312'))  # False
     print(s.is_repeatance(123))  # False
-    print(s.is_repeatance('123123123123'))  # False
+    print(s.is_repeatance('123123123123'))  # True
+    print()
+
+    p = SuperStr('abcba')
+    print(p.is_palindrom())  # True
+
+    p = SuperStr('a')
+    print(p.is_palindrom())  # True
+
+    p = SuperStr('')
+    print(p.is_palindrom())  # True
+
+    p = SuperStr('23ks')
+    print(p.is_palindrom())  # False
